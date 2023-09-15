@@ -1,8 +1,11 @@
 package DynamicPrograming;
 
+import java.util.HashMap;
+
 public class fibonacciSeries {
     public static void main(String[] args) {
-        System.out.println(fibo(5));
+        HashMap<Integer,Integer>map =new HashMap<>();
+        System.out.println(fibo(55));
     }
     public static int fibo(int n)
     {
@@ -11,6 +14,20 @@ public class fibonacciSeries {
             return n;
         }
         return fibo(n-1)+fibo(n-2);
+    }
+    public static int Dfibo(int n, HashMap<Integer,Integer>map )
+    {
+        if (n<=1)
+        {
+            return n;
+        }
+        if (map.containsKey(n))
+        {
+            return map.get(n);
+        }
+        int res=Dfibo(n-1,map)+Dfibo(n-2,map);
+        map.put(n,res);
+        return res;
     }
 
 }
