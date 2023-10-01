@@ -114,6 +114,7 @@ class BinaryTree {
         preOrder(root);
     }
 
+   //post order means visit left right and then root node
     private void postOrder(Node node) {
         if (node == null) {
             return;
@@ -122,5 +123,6 @@ class BinaryTree {
         preOrder(node.right);
         System.out.print(node.value + " ");
     }
+    
 
 }
