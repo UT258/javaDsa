@@ -5,6 +5,7 @@ import java.util.HashMap;
 public class fibonacciSeries {
     public static void main(String[] args) {
         HashMap<Integer,Integer>map =new HashMap<>();
+        //hashmap is a data structure that contains key value pair
         System.out.println(fibo(55));
         System.out.println(  );
     }
