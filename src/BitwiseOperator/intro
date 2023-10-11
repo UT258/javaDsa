@@ -1,0 +1,39 @@
+and operator
+when you and with any bit it will give you the bit itself
+suppose ex
+1 & 1 =1
+1 & 0 =0
+0 & 1 =0
+
+#or operator you know about that already
+when you  or with any bit it will give you 1
+
+# xor (if and only if) operator
+when you xor with any bit it will give you the opposite bit
+represented by ^ in this case only one bit should be true(1)
+if you xor any bit with 1 it will give you the opposite bit or complement of that bit
+suppose ex
+ 1 ^ 1 =0 if you xor with same bit it will give you 0
+1 ^ 0 =1
+0 ^ 1 =1
+
+## conversion of number system ##
+1)decimal  number system ()10
+decimal to any other base
+divide the number by the base and take the remainder and put it in the last
+example (133)10 to binary
+133/2=66 remainder 1
+66/2=33 remainder 0
+33/2=16 remainder 1
+16/2=8 remainder 0
+8/2=4 remainder 0
+4/2=2 remainder 0
+2/2=1 remainder 0
+1/2=0 remainder 1
+so the binary number is 10000101
+
+
+## convert any base to decimal ##
+take the number and multiply it with the base and add the next number
+example (1010)2 to decimal
+1*2^3+0*2^2+1*2^1+0*2^0=8+0+2+0=10  so the decimal number is 10

@@ -45,6 +45,10 @@ public class LL {
 
         }
     }
+   public void reverse()
+    {
+
+    }
     //we have to remove the node
    public int  removefirst()
 
@@ -73,6 +77,9 @@ public class LL {
         list.insert(3653);
         list.insert(347);
         list.insert(3834);
+        list.display();
+        list.reverse();
+        System.out.println("reverse");
         list.display();
 
 
