@@ -25,4 +25,6 @@ public class ithBit {
         a= ( a | mask);//here a will become 101111 which in decimal is
         System.out.println(a);
     }
+    //question is to reset the ith bit
+    //reset means if the bit is 1 then make it 0 and if it is 0 then make it 0
 }
