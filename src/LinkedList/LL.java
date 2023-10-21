@@ -47,6 +47,7 @@ public class LL {
     }
    public void reverse()
     {
+        //just need to reverse the linked list
 
     }
     //we have to remove the node
