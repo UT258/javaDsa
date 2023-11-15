@@ -13,11 +13,11 @@ public class CountSort {
 
 
     }
-    public  static int [] CountSort(int arr[])
+    public  static int [] CountSort(int[] arr)
     {
         int max= Arrays.stream(arr).max().getAsInt();//it will give you the max element
 
-        int frq[]=new int [max+1];
+        int[] frq =new int [max+1];
         for (int N:arr)
         {
             frq[N]++;
@@ -26,7 +26,7 @@ public class CountSort {
         }
         //now using frq array create the sorted array
         int index=0;
-        int output[]=new int[arr.length];
+        int[] output =new int[arr.length];
         for(int i=0;i< frq.length;i++)
         {
             while(frq[i]>0)

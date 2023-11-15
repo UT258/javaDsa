@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class FirstMissingPositive {
     public static void main(String[] args) {
-        int arr[]={1,2,0};
+        int[] arr ={1,2,0};
         System.out.println(firstMissingPositive(arr));
         Arrays.binarySearch(arr,0);
         System.out.println(Arrays.binarySearch(arr,1));
@@ -22,7 +22,7 @@ public class FirstMissingPositive {
         return -1;
 
     }
-    public static void sort(int arr[])
+    public static void sort(int[] arr)
     {
         //the approach is simple first check the element at correct index
         int i=0;

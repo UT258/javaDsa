@@ -11,7 +11,7 @@ public class nextgreaterelement {
     }
     public static  int[] nextGreaterElement(int[] nums1, int[] nums2) {
         //we need to find the next greater element in the stack
-        int ans[]=new int[nums1.length];
+        int[] ans =new int[nums1.length];
         for (int i=0;i<nums1.length;i++)
         {
             int index=search(nums2,nums1[i]);
@@ -37,7 +37,7 @@ public class nextgreaterelement {
         return ans;
 
     }
-    public static int search(int arr[],int target)
+    public static int search(int[] arr, int target)
     {
         //binary search
         int start=0;

@@ -3,7 +3,7 @@ package LinkedList;
 import StacksAndQueue.LLstack;
 import com.sun.source.tree.Tree;
 
-import java.security.PublicKey;
+
 import java.util.Stack;
 
 public class LL {
@@ -14,6 +14,7 @@ public class LL {
         {
             this.val=val;
         }
+
 
     }
     TreeNode head;
@@ -134,6 +135,7 @@ public void insertFirst(int value)
     TreeNode node =NodeAt(size-n);
         System.out.println("size -n" + (size-n));
     node.next=node.next.next;
+
 
 
 

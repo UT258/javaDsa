@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class RotateTheArray {
     public static void main(String[] args) {
         //we have to rotate the array
-        int arr[]={1,2,3,4,5,6,7};
+        int[] arr ={1,2,3,4,5,6,7};
         //we have to rotate the array
         //first method is to use another array  and second without using array
         //without using array
@@ -17,7 +17,7 @@ public class RotateTheArray {
 
 
     }
-    public static void rotateby1(int arr[])
+    public static void rotateby1(int[] arr)
     {
         //we need to find the last element of the array and then we need to put it in the first position
         //store the last element in the temp variable
@@ -29,19 +29,16 @@ public class RotateTheArray {
 
 
     }
-    public static void rotatebyd(int arr[],int d)
+    public static void rotatebyd(int[] arr, int d)
     {
         //now the question is to rotate the array by d places
         //we will use the same method
         d=d%arr.length;//this is to if the rotation is more than length of the array to handle that case
 
         //first we need to store the element in the array
-        int temp[]=new int[d];
+        int[] temp =new int[d];
         //for loop for doing it
-        for(int i=0;i<d;i++)
-        {
-            temp[i]=arr[i];
-        }
+        System.arraycopy(arr, 0, temp, 0, d);
         if (temp.length==0)
         {
             System.out.println("no need to rotate");

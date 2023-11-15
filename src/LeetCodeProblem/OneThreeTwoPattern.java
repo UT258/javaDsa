@@ -7,7 +7,7 @@ public class OneThreeTwoPattern {
 
     }
     //123 pattern
-    public int onetwothree(int arr[])
+    public int onetwothree(int[] arr)
     {
         int n=arr.length;
         int min=arr[0];

@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class ThreeBit {
     public static void main(String[] args) {
         //question in array every number is apearing thrice except one number find that number
-        int arr[]={2,2,3,2,7,7,8,7,8,8};
+        int[] arr ={2,2,3,2,7,7,8,7,8,8};
         System.out.println(threeBit(arr));
         //it was working when number are appearing  thrice are one after another it is not working when they are not one after another
         //{2,2,3,2,7,7,8,7,8,8}; this is not working but {2,2,2,3,7,7,7,8,8,8}; this is working
@@ -15,7 +15,7 @@ public class ThreeBit {
         //internally how it is working is that we are adding all the bits of the number and then taking mod 3 so the number which is appearing once will be the answer
         Arrays.sort(arr);
     }
-    public static int threeBit(int arr[])
+    public static int threeBit(int[] arr)
     {
         int n=arr.length;
         int res=0;
@@ -28,7 +28,7 @@ public class ThreeBit {
     //Given an integer n, return an array ans of length n + 1 such that for each i (0 <= i <= n), ans[i] is the number of 1's in the binary representation of i.
     public static int [] Countbits(int n)
     {
-        int arr[]=new int[n+1];
+        int[] arr =new int[n+1];
         for (int i=0;i<=n;i++)
         {
             arr[i]=count(i);

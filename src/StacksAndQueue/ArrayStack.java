@@ -2,7 +2,7 @@ package StacksAndQueue;
 
 public class ArrayStack {
     //now implement the stack using array
-   static int data[];
+   static int[] data;
    static int capacity =10;
    static int top;
    public ArrayStack(int size)

@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class cycleSort {
     public static void main(String[] args) {
-        int nums[]={4,3,2,7,8,2,3,1};
+        int[] nums ={4,3,2,7,8,2,3,1};
         sort(nums);
         System.out.println(Arrays.toString(nums));
         ArrayList<Integer> list=new ArrayList<>();
@@ -20,7 +20,7 @@ public class cycleSort {
         System.out.println(list);
 
     }
-    public static void sort (int arr[])
+    public static void sort (int[] arr)
     {
         //the approach is simple first check the element at correct index
         int i=0;
