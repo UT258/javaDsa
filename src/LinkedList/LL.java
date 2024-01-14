@@ -118,10 +118,12 @@ public void insertFirst(int value)
 
     head.next=node;
 }
+//the second method to remove the node in a linked list
+    //now what you have to do is to find the no
 
 
 
-// question we need to remove the node  from the last
+
     public  void RemoveFromLast(int n)
 
     {
@@ -136,12 +138,20 @@ public void insertFirst(int value)
         System.out.println("size -n" + (size-n));
     node.next=node.next.next;
 
-
-
-
-
-
-
+    }
+    public static void removeNthFromEnd(LL list, int n) {
+        //we need to remove the nth node from the end
+        //we need to find the size of the linked list
+        //we need to find the node at size-n
+        //we need to remove the node
+        //we need to remove the
+        int size = list.size();
+        if (n == size) {
+            list.head = list.head.next;
+            return;
+        }
+        TreeNode node = list.NodeAt(size - n);
+        node.next = node.next.next;
 
 
     }
@@ -158,6 +168,7 @@ public void insertFirst(int value)
         return node;
     }
 
+    
 
 
     public static void main(String[] args) {
@@ -179,11 +190,10 @@ public void insertFirst(int value)
         System.out.println();
        //remove
         list.display();
-
-
-
-
-
-
+        System.out.println();
+        System.out.println("remove from last");
+        list.RemoveFromLast(2);
+        list.display();
+        //remove from last
     }
 }
