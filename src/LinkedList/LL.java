@@ -61,6 +61,23 @@ public class LL {
    public void reverse()
     {
         //just need to reverse the linked list
+        //reverse the linked list
+        //we need to take three pointer
+        //one will point at the current node
+        //one will point at the previous node
+        //one will point at the next node
+        TreeNode current=head;
+        TreeNode prev=null;
+        TreeNode next=null;
+        while (current!=null)
+        {
+            next=current.next;
+            current.next=prev;
+            prev=current;
+            current=next;
+        }
+        head=prev;
+
 
     }
     //we have to remove the node

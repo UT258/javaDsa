@@ -23,7 +23,7 @@ public class sqrtDecomposition {
        // System.out.println(query(arr,2,7));
 
     }
-    public static int sqrtDecomposition(int arr[])
+    public static int[] sqrtDecomposition(int arr[])
     {
         //square root decomposition
         int index=-1;//-1 so that in the condition where 0 is there element start adding in  0 th  index not on 1th index
@@ -44,7 +44,7 @@ public class sqrtDecomposition {
             block[index]+=arr[i];
         }
         
-
+return block;
     }
 
 

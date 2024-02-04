@@ -9,7 +9,7 @@ public class Sw {
         //or it can give you sum and you have to find the longest subarray with sum k
         System.out.println(SWindow(arr,2));
 
-        ++
+
 
     }
     public static int SWindow(int arr[],int  k)
