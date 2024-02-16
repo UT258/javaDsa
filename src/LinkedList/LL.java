@@ -7,85 +7,81 @@ import com.sun.source.tree.Tree;
 import java.util.Stack;
 
 public class LL {
-    class TreeNode{
+    class TreeNode {
         int val;
         TreeNode next;
-        public TreeNode(int val)
-        {
-            this.val=val;
+
+        public TreeNode(int val) {
+            this.val = val;
         }
 
 
     }
+
     TreeNode head;
-    public LL()
-    {
+
+    public LL() {
 
     }
+
     //insert the node
-    void insert(int value)
-    {
-        if (head==null)
-        {
-            head=new TreeNode(value);
-            head.next=null;
+    void insert(int value) {
+        if (head == null) {
+            head = new TreeNode(value);
+            head.next = null;
 
         }
-        TreeNode node =new TreeNode(value);
+        TreeNode node = new TreeNode(value);
 
-        node.next=head;
+        node.next = head;
 
-        head=node;
+        head = node;
 
     }
-      private  TreeNode get(int value)
-   {
-       TreeNode node =head;
-       while(node.val!=value)
-       {
-           node=node.next;
-       }
-       return node;
-   }
 
-    void display()
-    {
-        TreeNode node =head;
-        while (node.next!=null)
-        {
-            System.out.print(node.val+"->");
-            node=node.next;
+    private TreeNode get(int value) {
+        TreeNode node = head;
+        while (node.val != value) {
+            node = node.next;
+        }
+        return node;
+    }
+
+    void display() {
+        TreeNode node = head;
+        while (node.next != null) {
+            System.out.print(node.val + "->");
+            node = node.next;
 
         }
     }
-   public void reverse()
-    {
+
+    public void reverse() {
         //just need to reverse the linked list
         //reverse the linked list
         //we need to take three pointer
         //one will point at the current node
         //one will point at the previous node
         //one will point at the next node
-        TreeNode current=head;
-        TreeNode prev=null;
-        TreeNode next=null;
-        while (current!=null)
-        {
-            next=current.next;
-            current.next=prev;
-            prev=current;
-            current=next;
+        TreeNode current = head;
+        TreeNode prev = null;
+        TreeNode next = null;
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
         }
-        head=prev;
+        head = prev;
 
 
     }
-    //we have to remove the node
-   public int  removefirst()
 
-    { int value = head.val;
+    //we have to remove the node
+    public int removefirst() {
+        int value = head.val;
         //remove the node
-        while(head.next!=null) {
+        while (head.next != null) {
 
 
             head = head.next;
@@ -98,64 +94,57 @@ public class LL {
     }
     //remove the last node
 
-public int removelast()
-{
-    TreeNode node =head;
-    while (node.next.next!=null)
-    {
-        node=node.next;
+    public int removelast() {
+        TreeNode node = head;
+        while (node.next.next != null) {
+            node = node.next;
+        }
+        int delete = node.next.val;
+        node.next = null; //this will remove the last node
+        return delete;
     }
-    int delete=node.next.val;
-    node.next=null; //this will remove the last node
-    return delete;
-}
-public int size()
-{
-    //function to calculate the size
-    TreeNode node =head;
-    int len=0;
-    while (node.next!=null)
-    {
+
+    public int size() {
+        //function to calculate the size
+        TreeNode node = head;
+        int len = 0;
+        while (node.next != null) {
 
 
-        node=node.next;
-        len++;
+            node = node.next;
+            len++;
 
+        }
+        return len;
     }
-    return  len;
-}
-public void insertFirst(int value)
-{  TreeNode prev=head;
-    if (head==null)
-    {
-        head=new TreeNode(value);
-        head.next=null;
-    }
-    TreeNode node=new TreeNode(value);
 
-    head.next=node;
-}
+    public void insertFirst(int value) {
+        TreeNode prev = head;
+        if (head == null) {
+            head = new TreeNode(value);
+            head.next = null;
+        }
+        TreeNode node = new TreeNode(value);
+
+        head.next = node;
+    }
 //the second method to remove the node in a linked list
     //now what you have to do is to find the no
 
 
+    public void RemoveFromLast(int n) {
+        if (n == size()) {
+            head = head.next;
+            return;
+        }
 
-
-    public  void RemoveFromLast(int n)
-
-    {
-     if (n==size())
-     {
-         head=head.next;
-         return;
-     }
-
-    int size=size();
-    TreeNode node =NodeAt(size-n);
-        System.out.println("size -n" + (size-n));
-    node.next=node.next.next;
+        int size = size();
+        TreeNode node = NodeAt(size - n);
+        System.out.println("size -n" + (size - n));
+        node.next = node.next.next;
 
     }
+
     public static void removeNthFromEnd(LL list, int n) {
         //we need to remove the nth node from the end
         //we need to find the size of the linked list
@@ -172,45 +161,24 @@ public void insertFirst(int value)
 
 
     }
-    public  TreeNode NodeAt(int index)
-    {
-        int i=0;
-        TreeNode node =head;
-        while(i!=index)
-        {
-            node=node.next;
+
+    //add two number LinkedList
+
+
+    public TreeNode NodeAt(int index) {
+        int i = 0;
+        TreeNode node = head;
+        while (i != index) {
+            node = node.next;
             i++;
 
         }
         return node;
     }
 
-    
-
 
     public static void main(String[] args) {
-        LL list=new LL();
-        Stack<TreeNode> node =new Stack<>();
 
-
-        list.insert(36);
-        list.insert(37);
-//        list.insert(38);
-//        list.insert(323);
-//        list.insert(3653);
-//        list.insert(347);
-//        list.insert(3834);
-        System.out.println("size :"+" "+list.size());
-       // System.out.println(list.NodeAt(2).val);
-        list.display();
-
-        System.out.println();
-       //remove
-        list.display();
-        System.out.println();
-        System.out.println("remove from last");
-        list.RemoveFromLast(2);
-        list.display();
-        //remove from last
+        }
     }
-}
+
