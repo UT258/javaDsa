@@ -7,6 +7,8 @@ public class ArrayStack {
    static int top;
    public ArrayStack(int size)
    {
+       //if size is zero then we will create the stack of default size
+
        if (size!=0)
        {
            data=new int[capacity];
