@@ -10,17 +10,13 @@ public class SLinkedList {
 
     public static void main(String[] args)  {
         SLinkedList ll = new SLinkedList();
-        ll.insert(4);
-        ll.insert(3);
-        ll.insert(2);
-        ll.insert(1);
-        ll.insert(6);
-        ll.display();
-        System.out.println();
-        System.out.println(ll.size());
-        System.out.println(ll.getNode(3).val);
-//        ll.insertLast(3);
-//        ll.insertLast(4);
+       ll.insertLast(1);
+       ll.insertLast(2);
+      ll.insertLast(2);
+      ll.insertLast(4);
+      ll.insertLast(5);
+      ll.display();
+       ll.display();
 
 
 //        System.out.println();
@@ -47,18 +43,6 @@ public class SLinkedList {
         }
 
     }
-    //method to find the size of the linked list
-//    public int size()
-//    {   int size=0;
-//        TreeNode node=head;
-//        while(node!=null)
-//        {
-//            node=node.next;
-//            size++;
-//        }
-//        return size;
-//
-//    }
 
 
     //insert from last
@@ -135,8 +119,69 @@ public class SLinkedList {
         //if above statement does not work then return head
         return head;
     }
+    //code for finding the middle of the the linked list using fast and slow pointer
+    //in the floyd cycle detection algorithm the fast pointer moves 2 steps and slow pointer moves 1 step
+    public TreeNode middle(TreeNode head)
+    {
+        TreeNode slow =head;
+        TreeNode fast=head;
+        while(fast!=null && fast.next!=null)
+        {
+            slow=slow.next;
+
+            fast=fast.next.next;
+        }
+        return slow;
+
+    }
+
+//recursive way to insert the element in the linked list
+   public void addlastRec(int value,TreeNode head)
+   {
+
+       //recursively add the element in the linked list
+       if(head.next==null)
+       {
+           TreeNode dummy =new TreeNode(value);
+           head.next=dummy;
+           dummy.next=null;
+
+       }
+       else {
+           addlastRec(value, head.next);
+       }
+
+   }
+   //remove duplicates from the sorted list
+    public void deleteDuplicates()
+    {
+         TreeNode temp = head;
+    while(temp != null && temp.next != null) {
+        if(temp.val == temp.next.val) {
+            temp.next = temp.next.next;
+        } else {
+            temp = temp.next;
+        }
+    }
+
+    }
+   public void addAtrec(int index,int value)
+   {
+
+      this.head=addAtrec(value,index,head);
+   }
+   private TreeNode addAtrec(int value,int index,TreeNode node)
+   {
+         if (node == null || index == 0) {
+        TreeNode dummy = new TreeNode(value);
+        dummy.next = node;
+        return dummy;
+    }
+    node.next = addAtrec(value, index - 1, node.next);
+    return node;
 
 
+   }
 
 
     public void display() {

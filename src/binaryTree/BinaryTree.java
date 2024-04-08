@@ -4,21 +4,11 @@ import java.util.Scanner;
 
 class BinaryTree {
 
+    private Node root;
+
     public BinaryTree() {
 
     }
-
-    private static class Node {
-        int value;
-        Node left;
-        Node right;
-
-        public Node(int value) {
-            this.value = value;
-        }
-    }
-
-    private Node root;
 
     // insert elements
     public void populate(Scanner scanner) {
@@ -114,7 +104,7 @@ class BinaryTree {
         preOrder(root);
     }
 
-   //post order means visit left right and then root node
+    //post order means visit left right and then root node
     private void postOrder(Node node) {
         if (node == null) {
             return;
@@ -123,6 +113,16 @@ class BinaryTree {
         preOrder(node.right);
         System.out.print(node.value + " ");
     }
-    
+
+    private static class Node {
+        int value;
+        Node left;
+        Node right;
+
+        public Node(int value) {
+            this.value = value;
+        }
+    }
+
 
 }

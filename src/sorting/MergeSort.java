@@ -1,82 +1,125 @@
 package sorting;
 
+
+
 import java.util.Arrays;
-import java.util.Scanner;
+
+import java.util.HashSet;
 
 public class MergeSort {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("enter the length :");
-        // Input number of elements (n)
-        int n = scanner.nextInt();
+        int[] arr = {5, 4, 3, 2, 1};
+        MergeSortInplace(arr,0, arr.length);
+        System.out.println(Arrays.toString(arr));
 
-        // Input elements of the array
-        System.out.println("input the element in the array:");
-        int[] arr = new int[n];
-        for (int i = 0; i < n; i++) {
-            arr[i] = scanner.nextInt();
-        }
 
-        // Input number of queries (q)
-        System.out.println("input the number of queries");
-        int q = scanner.nextInt();
 
-        // Process each query
-        for (int i = 0; i < q; i++) {
-            int left = scanner.nextInt() - 1; // Adjust for 0-based indexing
-            int right = scanner.nextInt() - 1; // Adjust for 0-based indexing
-
-            // Calculate and print inversions for the query range
-            int[] inversionCount = {0}; // Array to store inversion count
-            MSort(Arrays.copyOfRange(arr, left, right + 1), inversionCount);
-            System.out.println("Inversion count is " + inversionCount[0]);
-        }
-
-        scanner.close();
     }
 
-    public static int[] MSort(int arr[], int[] inversionCount) {
-        if (arr.length <= 1) {
+    public static int[] Msort(int[] arr) {
+        //merge sort work on the principle of divide and conquer
+        //first base case will be if there is only one element in the array then return the array
+        //if there are more than one element then divide the array into two parts and then call the merge sort on both the parts
+        //if there is only one element then it means that array is already sorted
+        if (arr.length == 1) {
             return arr;
         }
-
         int mid = arr.length / 2;
-        int[] left = MSort(Arrays.copyOfRange(arr, 0, mid), inversionCount);
-        int[] right = MSort(Arrays.copyOfRange(arr, mid, arr.length), inversionCount);
-
-        return merge(left, right, inversionCount);
+        //now divide that array till 0 to mid and mid to end
+        //then merge the sorted array
+        int[] left = Msort(Arrays.copyOfRange(arr, 0, mid));
+        int[] right = Msort(Arrays.copyOfRange(arr, mid, arr.length));
+        return merge(left, right);
     }
 
-    private static int[] merge(int[] left, int[] right, int[] inversionCount) {
+    private static int[] merge(int[] left, int[] right) {
         int[] ans = new int[left.length + right.length];
-        int i = 0, j = 0, k = 0;
+        int i = 0;
+        int j = 0;
+        int k = 0;
+        //run loop till one of the array elements are completely filled means there counter reach the end of the array
 
-        while (i < left.length && j < right.length) {
-            if (left[i] <= right[j]) {
+        while (i < left.length && j < right.length) {   //only move i when the element is added in array
+            if (left[i] < right[j]) {
+                //if left is less then add it
                 ans[k] = left[i];
                 i++;
             } else {
+                //means the right array element is smaller then add it
                 ans[k] = right[j];
                 j++;
-                inversionCount[0] += (left.length - i); // Count inversions
             }
+            //here increase the k
             k++;
-        }
-
-        // Copy remaining elements of left, if any
+        }//k is increased  only once cuz above only one condition will be executed
+        //after loop is over add the remaining element in the answer array
         while (i < left.length) {
             ans[k] = left[i];
             i++;
             k++;
         }
-
-        // Copy remaining elements of right, if any
         while (j < right.length) {
             ans[k] = right[j];
             j++;
             k++;
         }
-
         return ans;
+        }
+    public static void MergeSortInplace(int[] arr,int start,int end) {
+        //merge sort work on the principle of divide and conquer
+        //first base case will be if there is only one element in the array then return the array
+        //if there are more than one element then divide the array into two parts and then call the merge sort on both the parts
+        //if there is only one element then it means that array is already sorted
+        if (end-start==1) {
+            return;
+        }
+        int mid = (start+end)/2;
+        //now divide that array till 0 to mid and mid to end
+        //then merge the sorted array
+        MergeSortInplace(arr,0,mid);
+        MergeSortInplace(arr,mid,end);
+        mergeInplace(arr,start,mid,end);
+
+
+
+
     }
-}
+
+    private static void  mergeInplace(int[] arr, int start, int mid , int end) {
+        int[] ans = new int[end-start];
+        int i =start;
+        int j = mid;
+        int k = 0;
+        //run loop till one of the array elements are completely filled means there counter reach the end of the array
+
+        while (i < mid && j < end) {   //only move i when the element is added in array
+            if (arr[i] < arr[j]) {
+                //if left is less then add it
+                ans[k] = arr[i];
+                i++;
+            } else {
+                //means the right array element is smaller then add it
+                ans[k] = arr[j];
+                j++;
+            }
+            //here increase the k
+            k++;
+        }//k is increased  only once cuz above only one condition will be executed
+        //after loop is over add the remaining element in the answer array
+        while (i < mid) {
+            ans[k] = arr[i];
+            i++;
+            k++;
+        }
+        while (j < end) {
+            ans[k] = arr[j];
+            j++;
+            k++;
+        }
+        System.arraycopy(ans, 0, arr, start + 0, ans.length);
+
+    }
+
+    }
+
+
