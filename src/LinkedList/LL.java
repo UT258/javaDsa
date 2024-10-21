@@ -1,12 +1,154 @@
 package LinkedList;
 
 
-import java.util.List;
 
-public class LL {
-    class ListNode {
+  class LL {
+      static class ListNode {
         int val;
         ListNode next;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         public ListNode(int val) {
             this.val = val;
@@ -26,7 +168,7 @@ public class LL {
     }
 
     //insert the node
-    void insert(int value) {
+   public void insert(int value) {
         if (head == null) {
             head = new ListNode(value);
             head.next = null;
@@ -40,7 +182,7 @@ public class LL {
 
     }
 
-    private ListNode get(int value) {
+    public ListNode get(int value) {
         ListNode node = head;
         while (node.val != value) {
             node = node.next;
@@ -50,7 +192,7 @@ public class LL {
 
     void display() {
         ListNode node = head;
-        while (node.next != null) {
+        while (node != null) {
             System.out.print(node.val + "->");
             node = node.next;
 
@@ -64,16 +206,21 @@ public class LL {
         //one will point at the current node
         //one will point at the previous node
         //one will point at the next node
-        ListNode current = head;
-        ListNode prev = null;
-        ListNode next = null;
-        while (current != null) {
-            next = current.next;
-            current.next = prev;
-            prev = current;
-            current = next;
-        }
-        head = prev;
+      ListNode prev=null;
+      ListNode pres=head;
+      ListNode next=pres.next;
+      while(pres!=null)
+      {
+          pres.next=prev;
+
+          prev=pres;
+          pres=next;
+          if(next!=null)
+          {
+              next=next.next;
+          }
+      }
+      head=prev;
 
 
     }
@@ -109,11 +256,11 @@ public class LL {
         //function to calculate the size
         ListNode node = head;
         int len = 0;
-        while (node.next != null) {
+        while (node!= null) {
 
-
-            node = node.next;
             len++;
+            node = node.next;
+
 
         }
         return len;
@@ -136,6 +283,7 @@ public class LL {
         {
             head=new ListNode(value);
             head.next=null;
+            return;
         }
         ListNode node = head;
         while (node.next != null) {
@@ -209,6 +357,7 @@ public class LL {
 
    }
 
+
     private ListNode merge(ListNode left, ListNode right) {
         ListNode dummy=new ListNode();
         ListNode temp=dummy.next;
@@ -255,6 +404,7 @@ public class LL {
 
         }
         return slow;
+
 
     }
     //cycle detection
@@ -308,28 +458,116 @@ public void createCycle() {
 
     public static void main(String[] args) {
         LL l=new LL();
-        l.insert(23);
-        l.insert(34);
-        l.insert(35);
-        l.insert(36);
+        l.insertLast(1);
+      l.insertLast(2);
+      l.insertLast(1);
+//        l.insertLast(2);
+//        l.insertLast(1);
 
-        System.out.println(l.iscycle());
-        System.out.println(l.LengthCycle());
-        LL l1=new LL();
-        l1.insert(2);
-        l1.insert(3);
-        l1.insert(35);
-        l1.insert(36);
-        l1.insert(37);
-        LL ans=new LL();
-        ans=merge(l,l1);    //merge the two linked list
+//
 
-        ans.display();
+
+        l.display();
+        System.out.println();
+        System.out.println("is palindrome:"+isPalindrome(l));
+       l.display();
 
 
 
 
         }
+        //question print linked list in zig zag order
+     public static void  zigzag(LL list)
+     {
+         //find middle of the linked list
+
+         ListNode head1= list.head;
+         ListNode mid=list.middle().next;
+         list.middle().next=null;
+          ListNode head2=reverseFrom(mid,list);
+         list.middle().next=null;
+
+
+         while(head2!=null && head1!=null)
+         {
+          ListNode tem1=head1.next;
+           ListNode temp2=head2.next;
+
+             head1.next=head2;
+             head2.next=tem1;
+             //move the head;
+             head1=tem1;
+             head2=temp2;
+         }
+
+
+
+
+     }
+     public static ListNode reverseFrom(ListNode head,LL list)
+     {
+            //one will point at the next node
+         if(list.size()<2)
+         {
+             return head;
+         }
+
+      ListNode prev=null;
+      ListNode pres=head;
+      ListNode next=pres.next;
+      while(pres!=null)
+      {
+          pres.next=prev;
+
+          prev=pres;
+          pres=next;
+          if(next!=null)
+          {
+              next=next.next;
+          }
+      }
+      return prev;
+     }
+     //pallindrome in a linked list
+      public static boolean isPalindrome(LL list)
+      {
+
+       ListNode head1= list.head;
+       if(head1.next==null)
+       {
+           return true;
+       }
+       if(list.size()==2)
+       {
+           if(head1.val!=head1.next.val)
+           {
+               return false;
+           }
+           else {
+               return true;
+           }
+       }
+         ListNode mid=list.middle().next;
+         list.middle().next=null;
+          ListNode head2=reverseFrom(mid,list);
+         list.middle().next=null;
+         //if there are only two nodes just check if they are equal or not
+
+       //same Zigzag order //first reverse the linked list and check head 1 and 2 if they are equal then palindrome
+          while (head2!=null && head1!=null)
+          {
+              if(head2.val!= head1.val)
+              {
+                  return false;
+              }
+              head2=head2.next;
+              head1=head1.next;
+          }
+          return true;
+
+      }
+
+
 
 
     }

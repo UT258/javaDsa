@@ -3,7 +3,7 @@ package BitwiseOperator;
 public class CountSetBits {
     public static void main(String[] args) {
         System.out.println(countSetbit(5));
-        System.out.println(Integer.bitCount(5));
+        System.out.println(Integer.bitCount((10 ^ 20)));
 
 
     }
@@ -18,7 +18,7 @@ public class CountSetBits {
             {
              count++;
             }
-            n=n>>1;
+            n=n>>1;//right shift will remove the last set bit
 
         }
         return count;

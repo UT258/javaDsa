@@ -8,7 +8,7 @@ import java.util.HashSet;
 
 public class MergeSort {
     public static void main(String[] args) {
-        int[] arr = {5, 4, 3, 2, 1};
+        int[] arr = {6,5, 4, 3, 2, 1};
         MergeSortInplace(arr,0, arr.length);
         System.out.println(Arrays.toString(arr));
 
@@ -28,6 +28,7 @@ public class MergeSort {
         //now divide that array till 0 to mid and mid to end
         //then merge the sorted array
         int[] left = Msort(Arrays.copyOfRange(arr, 0, mid));
+        System.out.println(Arrays.toString(left));
         int[] right = Msort(Arrays.copyOfRange(arr, mid, arr.length));
         return merge(left, right);
     }

@@ -19,6 +19,7 @@ public class NumberOfbits {
     //second method is to use log property
     public static int logCoundigit(int  n,int base)
     {
-     return (int)(Math.log(n)/Math.log(base))+1;
+
+        return (int)(Math.log(n)/Math.log(base))+1;
     }
 }
